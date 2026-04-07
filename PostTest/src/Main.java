@@ -1,42 +1,26 @@
+import Rental.Kendaraan;
 import Rental.Mobil;
 import Rental.Motor;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== SISTEM SEWA KENDARAAN ===\n");
+        // Declare array list
+        ArrayList<Kendaraan> daftarKendaraan = new ArrayList<>();
 
-        
-        System.out.println("--- MOBIL AVANZA (7 penumpang) ---");
-        Mobil avanza = new Mobil("Toyota Avanza", 300000, 7);
-        avanza.displayInfo();
-        System.out.println("Total harga sewa (3 hari): Rp" + avanza.hitungHargaSewa(3));
-        System.out.println();
+        // Menambahkan 4 objek 
+        daftarKendaraan.add(new Mobil("Toyota Avanza", 2020, 500000));
+        daftarKendaraan.add(new Mobil("Honda Brio", 2019, 450000));
+        daftarKendaraan.add(new Motor("Yamaha NMAX", 2021, 150000));
+        daftarKendaraan.add(new Motor("Honda Vario", 2020, 120000));
 
-        
-        System.out.println("--- MOBIL BEBAS (4 penumpang) ---");
-        Mobil bebas = new Mobil("Daihatsu Ayla", 250000, 4);
-        bebas.displayInfo();
-        System.out.println("Total harga sewa (3 hari): Rp" + bebas.hitungHargaSewa(3));
-        System.out.println();
+        // Looping untuk menampilkan info dan total sewa 5 hari
+        System.out.println("=== SISTEM PENYEWAAN KENDARAAN ===\n");
 
-        
-        System.out.println("--- MOTOR BEAT (110 CC) ---");
-        Motor beat = new Motor("Honda Beat", 70000, 110);
-        beat.displayInfo();
-        System.out.println("Total harga sewa (3 hari): Rp" + beat.hitungHargaSewa(3));
-        System.out.println();
-
-        
-        System.out.println("--- MOTOR NINJA (250 CC) ---");
-        Motor ninja = new Motor("Kawasaki Ninja", 150000, 250);
-        ninja.displayInfo();
-        System.out.println("Total harga sewa (3 hari): Rp" + ninja.hitungHargaSewa(3));
-        System.out.println();
-
-        
-        System.out.println("--- MOTOR CBR (600 CC) ---");
-        Motor cbr = new Motor("Honda CBR", 200000, 600);
-        cbr.displayInfo();
-        System.out.println("Total harga sewa (3 hari): Rp" + cbr.hitungHargaSewa(3));
+        for (Kendaraan k : daftarKendaraan) {
+            k.displayInfo();
+            System.out.println("Total Biaya Sewa (5 hari): Rp" + k.hitungHargaSewa(5));
+            System.out.println("----------------------------------------\n");
+        }
     }
 }
